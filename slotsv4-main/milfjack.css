@@ -1,0 +1,224 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #3c1264; /* Background color for the entire page */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.top-row {
+    display: flex;
+    flex: 0.1; /* Reduced height of the top row */
+    align-items: stretch;
+    background-image: url("https://w.wallhaven.cc/full/ox/wallhaven-oxzyv5.jpg");
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+.top-box {
+    flex: 2; /* Center box takes more space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.top-box img {
+    max-width: 50%;
+    max-height: 60%;
+    object-fit: contain;
+}
+
+.side-box {
+    flex: 1; /* Side boxes take equal space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bottom-section {
+    flex: 0.3; /* Height of the bottom section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #3c1264;
+    padding: 20px;
+}
+
+.bigbox {
+    border-color: #da8ffd;
+    border-width: 2px;
+    margin-top: 100px;
+    background-color: rgba(242, 211, 255, 0.884);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 10px;
+    position: relative; /* Make the bigbox a positioning context */
+    width: 700px;
+    box-shadow: 0 0 30px 15px pink; /* Constant red glow */
+    transition: box-shadow 0.3s ease;
+    height:400px;
+}
+
+.bigbox.spinning {
+    animation: bigbox-flash 0.5s infinite alternate; /* Flashing animation while spinning */
+}
+
+.bigbox.jackpot {
+    animation: bigbox-fast-flash 0.2s infinite alternate; /* Faster flashing animation for jackpot */
+}
+
+@keyframes bigbox-flash {
+    0% {
+        box-shadow: 0 0 30px 15px red;
+    }
+    100% {
+        box-shadow: 0 0 50px 25px red;
+    }
+}
+
+@keyframes bigbox-fast-flash {
+    0% {
+        box-shadow: 0 0 30px 15px red;
+    }
+    100% {
+        box-shadow: 0 0 60px 30px red;
+    }
+}
+
+.scorebox {
+    border-radius: 10px;
+    background-color: darkslateblue;
+    padding: 20px;
+    margin-top: 40px;
+    width: 500px;
+    height: 100px;
+    color: white;
+    font-size: 36px; /* Make the text larger */;
+    font-family: Impact, fantasy; /* Change font to Impact, fantasy */
+    text-align: center;
+    position: absolute; /* Position the scorebox inside the bigbox */
+    top: 10px; /* Position it near the top of the bigbox */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    margin-bottom: 70px;
+}
+
+.flash {
+    animation: text-flash 0.5s infinite alternate; /* Flashing animation for the text */
+}
+
+@keyframes text-flash {
+    0% {
+        color: white; /* Default text color */
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+    }
+    100% {
+        color: white; /* Flashing text color */
+        text-shadow: 0 0 15px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+        -webkit-text-stroke-width: 3px;
+        -webkit-text-stroke-color: #180521;
+    }
+}
+
+.box {
+    width: 175px;
+    height: 175px;
+    background-color: #333;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; /* Ensure the image fully covers the box */
+    background-position: center; /* Center the image within the box */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for glow */
+    opacity: 0.8; /* Default opacity set to 80% */
+    margin-top: 200px;
+    margin-inline:10px;
+}
+
+.box:hover {
+    transform: scale(1.1); /* Slightly enlarge the box on hover */
+}
+
+.box.glow {
+    box-shadow: 0 0 15px 10px #ffffff; /* Glowing border effect */
+    border-color: white; /* Change border color to match the glow */
+}
+
+button {
+    margin-top: 60px; /* Space between the button and the top of the box */
+    padding: 35px 60px; /* Increase padding for a larger button */
+    font-size: 30px; /* Increase font size */
+    background-color: rgb(154, 1, 219); /* Set button color to gray */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for effects */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Default button shadow */
+    margin-inline: 10px;
+}
+
+button:hover {
+    background-color: rgb(179,0,255); /* Slightly darker red on hover */
+    transform: scale(1.1); /* Slightly enlarge button on hover */
+    box-shadow: 0 0 50px 15px rgb(179,0,255); /* Slightly enlarge button on hover */
+}
+
+button:active {
+    transform: scale(0.95); /* Slightly shrink button on click */
+    box-shadow: 0 0 25px 10px hotpink; /* Add glow effect on click */
+}
+
+.back-button-container {
+    justify-content: flex-start;
+    margin-top: -5px;
+}
+
+.back-button {
+    padding: 20px 30px;
+    font-size: 26px;
+    background-color: darkorchid;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: navy;
+}
+
+.divider-vertical {
+    width: 5px; /* Width of the vertical divider */
+    background-color: pink; /* Color of the divider */
+    margin: 0 10px; /* Space around the divider */
+}
+.divider {
+    width: 100%;
+    height: 5px;
+    background-color: pink; /* Divider line color */
+}
