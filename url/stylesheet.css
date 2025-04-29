@@ -1,0 +1,96 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #2c1111, #411f1f, #632c2c);
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 450px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgb(219, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgb(219, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgb(219, 0, 0, 0.7);
+    }
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px rgb(219, 0, 0, 0.3);
+}
+
+input:focus {
+    border-color: #db0000;
+    box-shadow: 0 0 15px rgb(219, 0, 0, 0.7);
+}
+
+button {
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #db0000, #9e0000);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgb(219, 0, 0, 0.5);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgb(219, 0, 0, 0.8);
+}
+
+#result {
+    margin-top: 25px;
+}
+
+#shortenedUrl {
+    font-weight: bold;
+    color: #db0000;
+    word-wrap: break-word;
+    text-shadow: 0 0 10px rgba(219, 0, 0, 0.7);
+    animation: textGlow 2s infinite alternate;
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(219, 0, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(219, 0, 0, 0.9);
+    }
+}
